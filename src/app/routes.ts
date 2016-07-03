@@ -1,5 +1,4 @@
 import {provideRouter, RouterConfig} from '@angular/router'
-
 import {Home} from './components/home/home'
 import {AppMdButton} from './components/app-md-button/app-md-button'
 import {AppMdCard} from './components/app-md-card/app-md-card'
@@ -32,6 +31,7 @@ export const routes: RouterConfig = [
   {path: 'md-slide-toggle', component: AppMdSlideToggle},
   {path: 'md-tabs', component: AppMdTabs},
   {path: 'md-toolbar', component: AppMdToolbar},
+  {path: '**', component: Home},
 ]
 
 export const APP_ROUTE_PROVIDER = [provideRouter(routes)]
