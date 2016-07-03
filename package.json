@@ -21,6 +21,7 @@
     "css-loader": "^0.23.1",
     "es6-promise": "^3.2.1",
     "es6-shim": "^0.35.1",
+    "html": "0.0.10",
     "postcss-calc": "^5.2.1",
     "postcss-easy-import": "^1.0.1",
     "postcss-loader": "^0.9.1",
@@ -30,6 +31,7 @@
     "raw-loader": "^0.5.1",
     "redux-logger": "^2.6.1",
     "reflect-metadata": "^0.1.3",
+    "shelljs": "^0.7.0",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
     "stylelint-config-beanloop": "^0.1.1",
@@ -58,6 +60,7 @@
     "@angular2-material/sidenav": "^2.0.0-alpha.6",
     "@angular2-material/toolbar": "^2.0.0-alpha.6",
     "core-js": "^2.2.0",
+    "markdown-styles": "^3.1.6",
     "post-material": "^0.1.0",
     "rxjs": "5.0.0-beta.9",
     "zone.js": "~0.6.12"
