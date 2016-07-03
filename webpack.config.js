@@ -1,25 +1,41 @@
 const webpack = require('webpack')
 const path = require('path')
 
-const webpackConfig = {
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+const production = process.env.NODE_ENV === 'production'
+const ENV = process.env.npm_lifecycle_event
+
+const browserConfig = {
   entry: {
     'polyfills': './src/polyfills.ts',
     'vendor': './src/vendor.ts',
-    'app': './src/main.ts',
+    'app': './src/main.ts'
   },
 
   output: {
     path: './dist',
+    devtoolModuleFilenameTemplate: '/[absolute-resource-path]',
+    filename: production ? 'js/[name].[hash].js' : 'js/[name].js',
+    chunkFilename: production ? '[id].[hash].chunk.js' : '[id].chunk.js',
+    publicPath: production ? '/' : 'http://localhost:4000/',
   },
 
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'vendor', 'polyfills'], minChunks: Infinity }),
-  ],
+  debug: !production,
+  devtool: production ? 'source-map' : 'eval-source-map',
+
+  devServer: {
+    contentBase: './src',
+    historyApiFallback: true,
+    stats: 'minimal',
+  },
 
   module: {
     loaders: [
       {
-        test: /\.[tj]s(x?)$/,
+        test: /\.[tj]s$/,
         exclude: /node_modules/,
         loaders: [
           'babel?' + JSON.stringify({
@@ -42,57 +58,32 @@ const webpackConfig = {
         test: /\.html$/,
         loader: 'raw-loader'
       },
-    ]
-  }
-
-}
-
-const defaultConfig = {
-  devtool: 'cheap-module-source-map',
-  cache: true,
-  debug: true,
-  output: {
-    filename: '[name].bundle.js',
-    sourceMapFilename: '[name].map',
-    chunkFilename: '[id].chunk.js'
-  },
-
-  module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'source-map-loader',
-        exclude: [
-          // These packages have problems with their sourcemaps
-          path.join(__dirname, 'node_modules', 'rxjs'),
-          path.join(__dirname, 'node_modules', '@angular2-material'),
-          path.join(__dirname, 'node_modules', '@angular'),
-        ]
-      }
     ],
-    noParse: [
-      path.join(__dirname, 'node_modules', 'zone.js', 'dist'),
-      path.join(__dirname, 'node_modules', 'angular2', 'bundles')
-    ]
-  },
-  resolve: {
-    root: [path.join(__dirname, 'src')],
-    extensions: ['', '.ts', '.js', '.scss'],
-    alias: {
-      'angular2/testing': path.join(__dirname, 'node_modules', '@angular', 'core', 'testing.js'),
-      '@angular/testing': path.join(__dirname, 'node_modules', '@angular', 'core', 'testing.js'),
-      'angular2/core': path.join(__dirname, 'node_modules', '@angular', 'core', 'index.js'),
-      'angular2/platform/browser': path.join(__dirname, 'node_modules', '@angular', 'platform-browser', 'index.js'),
-      'angular2/router': path.join(__dirname, 'node_modules', '@angular', 'router', 'index.js'),
-      'angular2/http': path.join(__dirname, 'node_modules', '@angular', 'http', 'index.js'),
-      'angular2/http/testing': path.join(__dirname, 'node_modules', '@angular', 'http', 'testing.js')
-    },
   },
 
-  devServer: {
-    historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 }
+  resolve: {
+    extensions: ['', '.ts', '.js', '.scss', '.html'],
+    modulesDirectories: ['node_modules', path.resolve('./node_modules')],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      // Environment helpers
+      'process.env': {
+        ENV: JSON.stringify(ENV)
+      }
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['vendor', 'polyfills']
+    }),
+
+    new HtmlWebpackPlugin({
+        template: './src/index.html',
+        chunksSortMode: 'dependency'
+      }),
+
+    new ExtractTextPlugin('css/[name].[hash].css', {disable: !production})
+  ],
   postcss: webpack => ({
     plugins: [
       require('postcss-strip-inline-comments'),
@@ -107,16 +98,20 @@ const defaultConfig = {
     ],
     syntax: require('postcss-scss'),
   }),
-
-  node: {
-    global: 1,
-    crypto: 'empty',
-    module: 0,
-    Buffer: 0,
-    clearImmediate: 0,
-    setImmediate: 0
-  },
 }
 
-const webpackMerge = require('webpack-merge')
-module.exports = webpackMerge(defaultConfig, webpackConfig)
+if (production) {
+  browserConfig.plugins.push(
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new CopyWebpackPlugin([{
+      from: './src',
+      ignore: [
+        '*.ts',
+        '*.scss',
+      ],
+    }])
+  )
+}
+
+module.exports = [browserConfig]
