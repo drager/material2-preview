@@ -1,6 +1,82 @@
-<main class="app">
-  <router-outlet></router-outlet>
-</main>
+<md-toolbar color="primary">
+  <button (click)="start.toggle()">
+    <md-icon class="toolbar-icon">menu</md-icon>
+  </button>
+
+
+  <a [routerLink]="['/']">
+    <img src="https://material.angular.io/microsite-ui/images/angular-logo-with-text.svg" />
+    <span class="name">Material</span>
+  </a>
+
+  <span class="fill-remaining"></span>
+
+  <a href="https://github.com/angular/material2">Preview on Github</a>
+
+</md-toolbar>
+<md-sidenav-layout>
+  <md-sidenav #start>
+    <nav class="toggle">
+      <a (click)="toggleComponents()">
+        <span>Components</span>
+        <span class="fill-remaining"></span>
+        <md-icon>keyboard_arrow_down</md-icon>
+      </a>
+      <nav class="children" *ngIf="componentsOpened">
+        <a class="disabled">
+          <span>md-button-toggle</span>
+        </a>
+        <a [routerLink]="['/md-button']">
+          <span>md-button</span>
+        </a>
+        <a [routerLink]="['/md-card']">
+          <span>md-card</span>
+        </a>
+        <a [routerLink]="['/md-checkbox']">
+          <span>md-checkbox</span>
+        </a>
+        <a [routerLink]="['/md-grid-list']">
+          <span>md-grid-list</span>
+        </a>
+        <a [routerLink]="['/md-icon']">
+          <span>md-icon</span>
+        </a>
+        <a [routerLink]="['/md-input']">
+          <span>md-input</span>
+        </a>
+        <a [routerLink]="['/md-list']">
+          <span>md-list</span>
+        </a>
+        <a [routerLink]="['/md-progress-bar']">
+          <span>md-progress-bar</span>
+        </a>
+        <a [routerLink]="['/md-progress-circle']">
+          <span>md-progress-circle</span>
+        </a>
+        <a [routerLink]="['/md-radio']">
+          <span>md-radio</span>
+        </a>
+        <a [routerLink]="['/md-sidenav']">
+          <span>md-sidenav</span>
+        </a>
+        <a [routerLink]="['/md-slide-toggle']">
+          <span>md-slide-toggle</span>
+        </a>
+        <a [routerLink]="['/md-tabs']">
+          <span>md-tab</span>
+        </a>
+        <a [routerLink]="['/md-toolbar']">
+          <span>md-toolbar</span>
+        </a>
+      </nav>
+    </nav>
+  </md-sidenav>
+  <main class="app">
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</md-sidenav-layout>
 
 <footer>
   <div>
