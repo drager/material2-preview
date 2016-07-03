@@ -54,6 +54,17 @@ md-sidenav-layout {
   -webkit-overflow-scrolling: touch;
   background-color: transparent;
 
+  md-icon {
+    color: $dark-white !important;
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+    &.toggled {
+      transform: rotate(180deg) !important;
+    }
+
+  }
+
+
   .content {
     padding: 0 32px 32px 32px;
   }
@@ -64,24 +75,30 @@ md-sidenav-layout {
 
   md-sidenav {
     width: 240px;
+    background-color: #263238;
 
     nav {
       position: relative;
       flex-grow: 1;
       overflow-x: hidden;
 
-      background-color: white;
+      background-color: #263238;
       text-overflow: ellipsis;
       white-space: nowrap;
 
       .children {
-        background-color: #eee;
+        overflow: hidden;
+        position: relative;
+        background-color: #212B2F;
         box-shadow: inset 0 2px 2px 0 rgba(0,0,0,.14),
                     inset 0 3px 1px -2px rgba(0,0,0,.2),
                     inset 0 1px 5px 0 rgba(0,0,0,.12);
+        transition: max-height 1s;
+        overflow: hidden;
+        max-height: 0;
 
         > .disabled {
-          color: $faint-black;
+          color: rgba(255, 255, 255, 0.15);
           cursor: default;
           &:hover {
             background-color: transparent;
@@ -91,7 +108,7 @@ md-sidenav-layout {
         > a {
 
           &:hover {
-            background-color: $faint-black;
+            background-color: #263238;
           }
         }
       }
@@ -106,14 +123,14 @@ md-sidenav-layout {
         padding: 16px;
         width: 100%;
 
-        color: rgba(0, 0, 0, 0.87);
+        color: $dark-white;
         font-weight: 400;
         text-decoration: none;
 
         cursor: pointer;
 
         &:hover {
-          background-color: #eee;
+          background-color: #212B2F;
         }
 
         > md-icon {
