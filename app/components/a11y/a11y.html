@@ -1,0 +1,50 @@
+<article class="markdown-body">
+    <h1 id="mdliveannouncer"><a class="header-link" href="#mdliveannouncer"></a>MdLiveAnnouncer</h1>
+
+    <p><code>MdLiveAnnouncer</code> is a service, which announces messages to
+        several screenreaders.</p>
+    
+<h3 id="methods"><a class="header-link" href="#methods"></a>Methods</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>announce(message, politeness)</code>
+                </td>
+                <td>This announces a text message to the supported screenreaders.
+                    <br>
+                    <br>The politeness parameter sets the <code>aria-live</code> attribute on the
+                    announcer element</td>
+            </tr>
+        </tbody>
+    </table>
+    
+<h3 id="examples"><a class="header-link" href="#examples"></a>Examples</h3>
+
+    <p>The service can be injected in a component.</p>
+<pre class="hljs"><code>@Component({
+  selector: <span class="hljs-string">'my-component'</span>
+  providers: [MdLiveAnnouncer]
+} )
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyComponent {
+
+ <span class="hljs-keyword">constructor</span>(live: MdLiveAnnouncer) {
+   live.announce(<span class="hljs-string">"Hey Google"</span>);
+ } 
+
+} </code></pre>
+    <h3 id="supported-screenreaders"><a class="header-link" href="#supported-screenreaders"></a>Supported Screenreaders</h3>
+
+    <ul class="list">
+        <li>JAWS (Windows)</li>
+        <li>NVDA (Windows)</li>
+        <li>VoiceOver (OSX and iOS)</li>
+        <li>TalkBack (Android)</li>
+    </ul>
+</article>

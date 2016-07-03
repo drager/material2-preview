@@ -1,0 +1,156 @@
+<article class="markdown-body">
+    <h1 id="mdradio"><a class="header-link" href="#mdradio"></a>MdRadio</h1>
+
+    <p>Radio buttons allow the user to select one option from a set. Use radio
+        buttons for exclusive selection if you think that the user needs to see
+        all available options side-by-side.</p>
+    <p class="img-container">
+        <img src="https://material.angularjs.org/material2_assets/radio/radios.png"
+        alt="Preview">
+    </p>
+    
+<h3 id="examples"><a class="header-link" href="#examples"></a>Examples</h3>
+
+    <p>A basic radio group would have the following markup.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-radio-group</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option_1"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option_2"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-group</span>&gt;</span></code></pre>
+    <p>A dynamic example, populated from a <code>data</code> variable:</p>
+    <pre
+    class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-radio-group</span> [(<span class="hljs-attr">value</span>)]=<span class="hljs-string">"groupValue"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let d of data"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"d.value"</span>&gt;</span>
+    {{d.label} } 
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-group</span>&gt;</span></code>
+        </pre>
+        <p>A dynamic example for use inside a form showing support for <code>[(ngModel)]</code>:</p>
+        <pre
+        class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-radio-group</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"chosenOption"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-radio-button</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let o of options"</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">"o.value"</span>&gt;</span>
+    {{o.label} } 
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-radio-group</span>&gt;</span></code>
+            </pre>
+            <h2 id="-md-radio-group-"><a class="header-link" href="#-md-radio-group-"></a><code>&lt;md-radio-group&gt;</code></h2>
+
+            
+<h3 id="properties"><a class="header-link" href="#properties"></a>Properties</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>selected</code>
+                        </td>
+                        <td><code>MdRadioButton</code>
+                        </td>
+                        <td>The currently selected button.</td>
+                    </tr>
+                    <tr>
+                        <td><code>value</code>
+                        </td>
+                        <td><code>any</code>
+                        </td>
+                        <td>The current value for this group.</td>
+                    </tr>
+                    <tr>
+                        <td><code>disabled</code>
+                        </td>
+                        <td><code>boolean</code>
+                        </td>
+                        <td>Whether the group is disabled.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>When selection is changed, an event is emitted from the <code>change</code> EventEmitter
+                property.</p>
+            
+<h3 id="notes"><a class="header-link" href="#notes"></a>Notes</h3>
+
+            <p>The <code>md-radio-group</code> component has no button initially selected.</p>
+            <h2
+            id="-md-radio-button-"><a class="header-link" href="#-md-radio-button-"></a><code>&lt;md-radio-button&gt;</code>
+                </h2>
+                
+<h3 id="properties-1"><a class="header-link" href="#properties-1"></a>Properties</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name (attribute)</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>id</code>
+                            </td>
+                            <td><code>string</code>
+                            </td>
+                            <td>The unique ID of this radio button.</td>
+                        </tr>
+                        <tr>
+                            <td><code>name</code>
+                            </td>
+                            <td><code>string</code>
+                            </td>
+                            <td>Group name, defaults to parent radio group if present.</td>
+                        </tr>
+                        <tr>
+                            <td><code>value</code>
+                            </td>
+                            <td><code>any</code>
+                            </td>
+                            <td>The value of this radio button.</td>
+                        </tr>
+                        <tr>
+                            <td><code>checked</code>
+                            </td>
+                            <td><code>boolean</code>
+                            </td>
+                            <td>Whether the radio is checked.</td>
+                        </tr>
+                        <tr>
+                            <td><code>disabled</code>
+                            </td>
+                            <td><code>boolean</code>
+                            </td>
+                            <td>Whether the radio is disabled.</td>
+                        </tr>
+                        <tr>
+                            <td><code>aria-label</code>
+                            </td>
+                            <td><code>string</code>
+                            </td>
+                            <td>Used to set the <code>aria-label</code> attribute of the underlying input
+                                element.</td>
+                        </tr>
+                        <tr>
+                            <td><code>aria-labelledby</code>
+                            </td>
+                            <td><code>string</code>
+                            </td>
+                            <td>Used to set the <code>aria-labelledby</code> attribute of the underlying
+                                input element.</td>
+                        </tr>
+                    </tbody>
+                </table>
+<pre class="hljs"><code>                             <span class="hljs-keyword">If</span> provided, this attribute takes precedence <span class="hljs-keyword">as</span> the element'<span class="hljs-keyword">s</span> text alternative. |</code></pre>
+                <p>When checked, an event is emitted from the <code>change</code> EventEmitter
+                    property.</p>
+                
+<h3 id="notes-1"><a class="header-link" href="#notes-1"></a>Notes</h3>
+
+                <ul class="list">
+                    <li>The <code>md-radio-button</code> component by default uses the accent color
+                        from the theme palette.</li>
+                </ul>
+</article>

@@ -1,0 +1,108 @@
+<article class="markdown-body">
+    <h1 id="portals"><a class="header-link" href="#portals"></a>Portals</h1>
+
+    
+<h3 id="overview"><a class="header-link" href="#overview"></a>Overview</h3>
+
+    <p>A <code>Portal</code>is a piece of UI that can be dynamically rendered
+        to an open slot on the page.</p>
+    <p>The &quot;piece of UI&quot; can be either a <code>Component</code> or a <code>TemplateRef</code>.</p>
+    <p>The &quot;open slot&quot; is a <code>PortalHost</code>.</p>
+    <p>Portals and PortalHosts are low-level building blocks that other concepts,
+        such as overlays, can be built upon.</p>
+    
+<h5 id="-portal-t-"><a class="header-link" href="#-portal-t-"></a><code>Portal&lt;T&gt;</code></h5>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>attach(PortalHost): Promise&lt;T&gt;</code>
+                </td>
+                <td>Attaches the portal to a host.</td>
+            </tr>
+            <tr>
+                <td><code>detach(): Promise&lt;void&gt;</code>
+                </td>
+                <td>Detaches the portal from its host.</td>
+            </tr>
+            <tr>
+                <td><code>isAttached: boolean</code>
+                </td>
+                <td>Whether the portal is attached.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+<h5 id="-portalhost-"><a class="header-link" href="#-portalhost-"></a><code>PortalHost</code></h5>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>attach(Portal): Promise&lt;void&gt;</code>
+                </td>
+                <td>Attaches a portal to the host.</td>
+            </tr>
+            <tr>
+                <td><code>detach(): Promise&lt;void&gt;</code>
+                </td>
+                <td>Detaches the portal from the host.</td>
+            </tr>
+            <tr>
+                <td><code>dispose(): Promise&lt;void&gt;</code>
+                </td>
+                <td>Permanently dispose the host.</td>
+            </tr>
+            <tr>
+                <td><code>hasAttached: boolean</code>
+                </td>
+                <td>Whether a portal is attached to the host.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+<h3 id="using-portals"><a class="header-link" href="#using-portals"></a>Using portals</h3>
+
+    
+<h5 id="-templateportaldirective-"><a class="header-link" href="#-templateportaldirective-"></a><code>TemplatePortalDirective</code></h5>
+
+    <p>Used to get a portal from a <code>&lt;template&gt;</code>. <code>TemplatePortalDirectives</code>  <em>is</em> a <code>Portal</code>.</p>
+    <p>Usage:</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">portal</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The content of this template is captured by the portal.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- OR --&gt;</span>
+
+<span class="hljs-comment">&lt;!-- This result here is identical to the syntax above --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> *<span class="hljs-attr">portal</span>&gt;</span>
+  The content of this template is captured by the portal.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+    <p>A component can use <code>@ViewChild</code> or <code>@ViewChildren</code> to
+        get a reference to a
+<code>TemplatePortalDiective</code>.</p>
+    
+<h5 id="-componentportal-"><a class="header-link" href="#-componentportal-"></a><code>ComponentPortal</code></h5>
+
+    <p>Used to create a portal from a component type.</p>
+    <p>Usage:</p>
+<pre class="hljs"><code><span class="hljs-keyword">this</span>.userSettingsPortal = <span class="hljs-keyword">new</span> ComponentPortal(UserSettingsComponent);</code></pre>
+    <h5
+    id="-portalhostdirective-"><a class="header-link" href="#-portalhostdirective-"></a><code>PortalHostDirective</code>
+        </h5>
+        <p>Used to add a portal host to a template. <code>PortalHostDirective</code>  <em>is</em> a <code>PortalHost</code>.</p>
+        <p>Usage:</p>
+<pre class="hljs"><code><span class="hljs-comment">&lt;!-- Attaches the `userSettingsPortal` from the previous example. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> [<span class="hljs-attr">portalHost</span>]=<span class="hljs-string">"userSettingsPortal"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+</article>

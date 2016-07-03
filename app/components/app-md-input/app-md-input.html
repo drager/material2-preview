@@ -1,0 +1,120 @@
+<article class="markdown-body">
+    <h1 id="mdinput"><a class="header-link" href="#mdinput"></a>mdInput</h1>
+
+    <p>Inputs are the basic input component of Material 2. The spec can be found
+        <a
+        href="https://www.google.com/design/spec/components/text-fields.html">here</a>.</p>
+    
+<h2 id="notes"><a class="header-link" href="#notes"></a>Notes</h2>
+
+    <ul class="list">
+        <li>The <code>&lt;md-input&gt;</code> component fully support two-way binding
+            of <code>ngModel</code>, as if it was a normal <code>&lt;input&gt;</code>.</li>
+    </ul>
+    
+<h2 id="type"><a class="header-link" href="#type"></a>Type</h2>
+
+    <p>At the time of writing this README, the <code>[type]</code> attribute is
+        copied to the actual <code>&lt;input&gt;</code> element in the <code>&lt;md-input&gt;</code>.</p>
+    <p>The valid <code>type</code> attribute values are any supported by your browser,
+        with the exception of <code>file</code>, <code>checkbox</code> and <code>radio</code>.
+        File inputs aren&#39;t supported for now, while check boxes and radio buttons
+        have their own components.</p>
+    
+<h2 id="prefix-and-suffix"><a class="header-link" href="#prefix-and-suffix"></a>Prefix and Suffix</h2>
+
+    <p>You can include HTML before, and after the input tag, as prefix or suffix.
+        It will be underlined as per the Material specification, and clicking it
+        will focus the input.</p>
+    <p>To add a prefix, use the <code>md-prefix</code> attribute on the element.
+        Similarly, to add a suffix, use the <code>md-suffix</code> attribute. For
+        example, in a template:</p>
+    
+<h4 id="example"><a class="header-link" href="#example"></a>Example</h4>
+
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-input</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"amount"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">md-prefix</span>&gt;</span>$&amp;nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">md-suffix</span>&gt;</span>.00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-input</span>&gt;</span></code></pre>
+    <p>Will result in this:</p>
+    <p class="img-container">
+        <img src="https://material.angularjs.org/material2_assets/input/prefix-suffix.png">
+    </p>
+    
+<h2 id="hint-labels"><a class="header-link" href="#hint-labels"></a>Hint Labels</h2>
+
+    <p>Hint labels are the labels that shows the underline. You can have up to
+        two hint labels; one on the <code>start</code> of the line (left in an LTR
+        language, right in RTL), or one on the <code>end</code>.</p>
+    <p>You specify a hint-label in one of two ways; either using the <code>hintLabel</code> attribute,
+        or using an <code>&lt;md-hint&gt;</code> directive in the <code>&lt;md-input&gt;</code>,
+        which takes an <code>align</code> attribute containing the side. The attribute
+        version is assumed to be at the <code>start</code>.</p>
+    <p>Specifying a side twice will result in an exception during initialization.</p>
+    <h4
+    id="example-1"><a class="header-link" href="#example-1"></a>Example</h4>
+        <p>A simple character counter can be made like the following:</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-input</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Character count (100 max)"</span> <span class="hljs-attr">maxLength</span>=<span class="hljs-string">"100"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo-full-width"</span>
+          <span class="hljs-attr">value</span>=<span class="hljs-string">"Hello world. How are you?"</span>
+          #<span class="hljs-attr">characterCountHintExample</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-hint</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>{{characterCountHintExample.characterCount} }  / 100<span class="hljs-tag">&lt;/<span class="hljs-name">md-hint</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-input</span>&gt;</span></code></pre>
+        <p
+        class="img-container">
+            <img src="https://material.angularjs.org/material2_assets/input/character-count.png">
+            </p>
+            
+<h2 id="divider-color"><a class="header-link" href="#divider-color"></a>Divider Color</h2>
+
+            <p>The divider (line under the <code>&lt;md-input&gt;</code> content) color
+                can be changed by using the <code>dividerColor</code> attribute. A value
+                of <code>primary</code> is the default and will correspond to your theme
+                primary color. Alternatively, you can specify <code>accent</code> or <code>warn</code>.</p>
+            <h4
+            id="example-2"><a class="header-link" href="#example-2"></a>Example</h4>
+                <p>^((please not that this example has been doctored to show the colors;
+                    they would normally show only on focus)^)</p>
+                <p class="img-container">
+                    <img src="https://material.angularjs.org/material2_assets/input/divider-colors.png">
+                </p>
+                
+<h2 id="labelling"><a class="header-link" href="#labelling"></a>Labelling</h2>
+
+                <p>You can label the <code>&lt;md-input&gt;</code> as you would a regular <code>&lt;input&gt;</code>.</p>
+                <h2
+                id="full-forms"><a class="header-link" href="#full-forms"></a>Full Forms</h2>
+                    <p>You can make a full form using inputs, and it will support autofill natively.</p>
+                    <h4
+                    id="example-3"><a class="header-link" href="#example-3"></a>Example</h4>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-card</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo-card demo-basic"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>Basic<span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-card-content</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">md-input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo-full-width"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Company (disabled)"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Google"</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">md-input</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 100%"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-input</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"First name"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 100%"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-input</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-input</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Long Last Name That Will Be Truncated"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 100%"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-input</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">md-input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo-full-width"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Address"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1600 Amphitheatre Pkway"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-input</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">md-input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo-full-width"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Address 2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-input</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 100%"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo-full-width"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"City"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-input</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo-full-width"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"State"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-input</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">md-input</span> #<span class="hljs-attr">postalCode</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo-full-width"</span> <span class="hljs-attr">maxLength</span>=<span class="hljs-string">"5"</span>
+                      <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Postal Code"</span>
+                      <span class="hljs-attr">value</span>=<span class="hljs-string">"94043"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">md-hint</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>{{postalCode.characterCount} }  / 5<span class="hljs-tag">&lt;/<span class="hljs-name">md-hint</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">md-input</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-card-content</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-card</span>&gt;</span></code></pre>
+                        <p>Will result in this:</p>
+                        <p class="img-container">
+                            <img src="https://material.angularjs.org/material2_assets/input/full-form.png">
+                        </p>
+</article>

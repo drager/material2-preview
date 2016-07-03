@@ -1,0 +1,111 @@
+<article class="markdown-body">
+    <h1 id="mdslidetoggle"><a class="header-link" href="#mdslidetoggle"></a>MdSlideToggle</h1>
+
+    <p><code>MdSlideToggle</code> is a two-state control, which can be also called <code>switch</code>
+    </p>
+    
+<h3 id="screenshots"><a class="header-link" href="#screenshots"></a>Screenshots</h3>
+
+    <p class="img-container">
+        <img src="https://material.angularjs.org/material2_assets/slide-toggle/toggles.png"
+        alt="image">
+    </p>
+    
+<h2 id="-md-slide-toggle-"><a class="header-link" href="#-md-slide-toggle-"></a><code>&lt;md-slide-toggle&gt;</code></h2>
+
+    
+<h3 id="bound-properties"><a class="header-link" href="#bound-properties"></a>Bound Properties</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>disabled</code>
+                </td>
+                <td>boolean</td>
+                <td>Disables the <code>slide-toggle</code>
+                </td>
+            </tr>
+            <tr>
+                <td><code>color</code>
+                </td>
+                <td>`&quot;primary&quot;</td>
+                <td>&quot;accent&quot;</td>
+                <td>&quot;warn&quot;`</td>
+                <td>The color palette of the <code>slide-toggle</code>
+                </td>
+            </tr>
+            <tr>
+                <td><code>checked</code>
+                </td>
+                <td>boolean</td>
+                <td>Sets the value of the <code>slide-toggle</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+<h3 id="events"><a class="header-link" href="#events"></a>Events</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>change</code>
+                </td>
+                <td>boolean</td>
+                <td>Event will be emitted on every value change.
+                    <br/>It emits the new <code>checked</code> value.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+<h3 id="examples"><a class="header-link" href="#examples"></a>Examples</h3>
+
+    <p>A basic slide-toggle would have the following markup.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-slide-toggle</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"slideToggleModel"</span>&gt;</span>
+  Default Slide Toggle
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-slide-toggle</span>&gt;</span></code></pre>
+    <p>Slide toggle can be also disabled.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-slide-toggle</span> <span class="hljs-attr">disabled</span>&gt;</span>
+  Disabled Slide Toggle
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-slide-toggle</span>&gt;</span></code></pre>
+    <p>The <code>slide-toggle</code> can be also set to checked without a <code>ngModel</code>
+    </p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-slide-toggle</span> [<span class="hljs-attr">checked</span>]=<span class="hljs-string">"isChecked"</span>&gt;</span>
+  Input Binding
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-slide-toggle</span>&gt;</span></code></pre>
+    <p>You may also want to listen on changes of the <code>slide-toggle</code>
+        <br/>The <code>slide-toggle</code> always emits the new value to the event binding <code>(change)</code>
+    </p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-slide-toggle</span> (<span class="hljs-attr">change</span>)=<span class="hljs-string">"printValue($event)"</span>&gt;</span>
+  Prints Value on Change
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-slide-toggle</span>&gt;</span></code></pre>
+    <h2
+    id="theming"><a class="header-link" href="#theming"></a>Theming</h2>
+        <p>A slide-toggle is default using the <code>accent</code> palette for its
+            styling.</p>
+        <p>Modifying the color on a <code>slide-toggle</code> can be easily done, by
+            using the following markup.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-slide-toggle</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>
+  Primary Slide Toggle
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-slide-toggle</span>&gt;</span></code></pre>
+        <p>The color can be also set dynamically by using a property binding.</p>
+        <pre
+        class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-slide-toggle</span> [<span class="hljs-attr">color</span>]=<span class="hljs-string">"myColor"</span>&gt;</span>
+  Dynamic Color
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-slide-toggle</span>&gt;</span></code>
+            </pre>
+</article>
