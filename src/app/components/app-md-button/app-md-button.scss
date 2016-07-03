@@ -1,0 +1,37 @@
+@import 'post-material/src/definitions';
+
+  h1, h2, h3, h4 {
+    margin: 24px 0 16px 0;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  table {
+    width: 100%;
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border: 1px solid $faint-black;
+    }
+  }
+
+  pre {
+    display: flex;
+  }
+
+  h1 {
+    @mixin typo-display-3;
+  }
+
+  h3 {
+    @mixin typo-display-1;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 30px;
+    opacity: .87;
+  }

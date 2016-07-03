@@ -1,0 +1,88 @@
+<article class="markdown-body">
+    <h1 id="mdtoolbar"><a class="header-link" href="#mdtoolbar"></a>MdToolbar</h1>
+
+    <p><code>MdToolbar</code> is a vertical aligned bar, which can hold the application
+        title or actions.</p>
+    
+<h3 id="screenshots"><a class="header-link" href="#screenshots"></a>Screenshots</h3>
+
+    <p class="img-container">
+        <img src="https://cloud.githubusercontent.com/assets/4987015/13727769/6d952c78-e900-11e5-890a-ccfd46996812.png"
+        alt="Preview">
+    </p>
+    
+<h2 id="-md-toolbar-"><a class="header-link" href="#-md-toolbar-"></a><code>&lt;md-toolbar&gt;</code></h2>
+
+    
+<h3 id="bound-properties"><a class="header-link" href="#bound-properties"></a>Bound Properties</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>color</code>
+                </td>
+                <td>`&quot;primary&quot;</td>
+                <td>&quot;accent&quot;</td>
+                <td>&quot;warn&quot;`</td>
+                <td>The color palette for the toolbar</td>
+            </tr>
+        </tbody>
+    </table>
+    
+<h3 id="notes"><a class="header-link" href="#notes"></a>Notes</h3>
+
+    <p>The <code>md-toolbar</code> component will use by default the background
+        palette.</p>
+    
+<h3 id="examples"><a class="header-link" href="#examples"></a>Examples</h3>
+
+    <p>A basic toolbar would have the following markup.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar</span> [<span class="hljs-attr">color</span>]=<span class="hljs-string">"myColor"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>My Application Title<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar</span>&gt;</span></code></pre>
+    <p>Toolbars can also have multiple rows.
+        <br/>Multiple rows inside of a <code>md-toolbar</code> can be added by appending
+        as many as needed <code>&lt;md-toolbar-row&gt;</code> elements.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar</span> [<span class="hljs-attr">color</span>]=<span class="hljs-string">"myColor"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>First Row<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar-row</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Second Row<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar-row</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar-row</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Third Row<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar-row</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar</span>&gt;</span></code></pre>
+    <h3
+    id="alignment"><a class="header-link" href="#alignment"></a>Alignment</h3>
+        <p>The alignment inside of a toolbar row can be easily done by using the
+            flexbox layout.
+            <br/>For example, the following markup aligns the items on the <code>right</code>.</p>
+        <p>Custom HTML</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-toolbar</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Application Title<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- This fills the remaining space of the current row --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-fill-remaining-space"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Right Aligned Text<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-toolbar</span>&gt;</span></code></pre>
+        <p>Custom SCSS</p>
+<pre class="hljs"><code><span class="hljs-selector-class">.example-fill-remaining-space</span> {
+  <span class="hljs-comment">// This fills the remaining space, by using flexbox. </span>
+  <span class="hljs-comment">// Every toolbar row uses a flexbox row layout.</span>
+  <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">1</span> auto;
+} </code></pre>
+        <p>Output
+            <img src="https://cloud.githubusercontent.com/assets/4987015/13730760/0864894e-e959-11e5-9312-7f3cb990d80a.png"
+            alt="image">
+        </p>
+</article>

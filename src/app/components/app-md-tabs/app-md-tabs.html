@@ -1,0 +1,85 @@
+<article class="markdown-body">
+    <h1 id="mdtabgroup"><a class="header-link" href="#mdtabgroup"></a>MdTabGroup</h1>
+
+    <p>Tab groups allow the user to organize their content by labels such that
+        only one tab is visible at any given time.</p>
+    
+<h3 id="examples"><a class="header-link" href="#examples"></a>Examples</h3>
+
+    <p>A basic tab group would have the following markup.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-tab-group</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">md-tab-label</span>&gt;</span>One<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">md-tab-content</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Some tab content<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-tab</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">md-tab-label</span>&gt;</span>Two<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">md-tab-content</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Some more tab content<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-tab</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-tab-group</span>&gt;</span></code></pre>
+    <h2
+    id="-md-tab-group-"><a class="header-link" href="#-md-tab-group-"></a><code>&lt;md-tab-group&gt;</code>
+        </h2>
+        
+<h3 id="properties"><a class="header-link" href="#properties"></a>Properties</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>selectedIndex</code>
+                    </td>
+                    <td><code>number</code>
+                    </td>
+                    <td>The index of the currently active tab.</td>
+                </tr>
+                <tr>
+                    <td><code>focusIndex</code>
+                    </td>
+                    <td><code>number</code>
+                    </td>
+                    <td>The index of the currently active tab.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+<h3 id="events"><a class="header-link" href="#events"></a>Events</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>focusChange</code>
+                    </td>
+                    <td><code>Event</code>
+                    </td>
+                    <td>Fired when focus changes from one label to another</td>
+                </tr>
+                <tr>
+                    <td><code>selectedChange</code>
+                    </td>
+                    <td><code>Event</code>
+                    </td>
+                    <td>Fired when the selected tab changes</td>
+                </tr>
+            </tbody>
+        </table>
+</article>

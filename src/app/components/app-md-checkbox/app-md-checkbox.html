@@ -1,0 +1,68 @@
+<article class="markdown-body">
+    <h1 id="md-checkbox"><a class="header-link" href="#md-checkbox"></a>md-checkbox</h1>
+
+    <p><code>md-checkbox</code> is a Material Design selection control that allows
+        users to make a binary choice for a predetermined conditioned. It is modeled
+        after the browser&#39;s native checkbox element, and behaves in the same
+        way. Similar to the native checkbox element, it supports an indeterminate
+        state for &quot;mixed&quot; checkboxes.</p>
+    <p>A demo of the checkbox can be found at <a href="https://plnkr.co/edit/P7qce8lN9n2flS6kBhDy?p=preview">https://plnkr.co/edit/P7qce8lN9n2flS6kBhDy?p=preview</a>.</p>
+    <h2
+    id="usage"><a class="header-link" href="#usage"></a>Usage</h2>
+        
+<h3 id="basic-usage"><a class="header-link" href="#basic-usage"></a>Basic Usage</h3>
+
+        <p><code>md-checkbox</code> can be used anywhere a normal checkbox would be
+            used, and in the same way.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let todo of todos"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> [<span class="hljs-attr">checked</span>]=<span class="hljs-string">"todo.completed"</span>
+                 (<span class="hljs-attr">change</span>)=<span class="hljs-string">"todo.completed = $event"</span>&gt;</span>
+      {{todo.name} } 
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+        <h3
+        id="usage-within-forms"><a class="header-link" href="#usage-within-forms"></a>Usage within Forms</h3>
+            <p>In addition to supporting native checkbox functionality, <code>md-checkbox</code> also
+                supports <code>[(ngModel)]</code>
+for use within forms.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span> (<span class="hljs-attr">submit</span>)=<span class="hljs-string">"saveUser()"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Form fields... --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"user.agreesToTOS"</span>&gt;</span>
+      I have read and agree to the terms of service.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"!user.agreesToTOS"</span>&gt;</span>Sign Up<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
+            <h3
+            id="indeterminate-checkboxes"><a class="header-link" href="#indeterminate-checkboxes"></a>Indeterminate
+                Checkboxes</h3>
+                <p>Indeterminate checkboxes are useful when a checkbox needs to be in a &quot;mixed&quot;
+                    state</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> [<span class="hljs-attr">checked</span>]=<span class="hljs-string">"false"</span>
+             [<span class="hljs-attr">indeterminate</span>]=<span class="hljs-string">"isIndeterminate"</span>
+             (<span class="hljs-attr">change</span>)=<span class="hljs-string">"isIndeterminate = false"</span>&gt;</span>
+  Click the Button Below to Make Me Indeterminate.
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"isIndeterminate = true"</span>&gt;</span>
+  Make Indeterminate
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+                <h3
+                id="alignment"><a class="header-link" href="#alignment"></a>Alignment</h3>
+                    <p>Note that checkboxes can be aligned to come at the &quot;start&quot; or
+                        the &quot;end&quot; of its corresponding label.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> [<span class="hljs-attr">checked</span>]=<span class="hljs-string">"true"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
+  I come after my label.
+<span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span></code></pre>
+                    <p>Note that this alignment is preserved within RTL layouts.</p>
+                    
+<h3 id="accessibility"><a class="header-link" href="#accessibility"></a>Accessibility</h3>
+
+                    <p>By default, <code>md-checkbox</code> provides all the accessibility attributes
+                        needed. It also supports keyboard navigation and toggling via the spacebar.
+                        However, you can provide an <code>aria-label</code> to the checkbox if you
+                        do not wish to have any label text.</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">md-checkbox</span> [<span class="hljs-attr">checked</span>]=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"My standalone checkbox"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">md-checkbox</span>&gt;</span></code></pre>
+</article>

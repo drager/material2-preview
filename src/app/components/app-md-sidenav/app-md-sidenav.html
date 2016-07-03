@@ -1,0 +1,193 @@
+<article class="markdown-body">
+    <h1 id="mdsidenav"><a class="header-link" href="#mdsidenav"></a>MdSidenav</h1>
+
+    <p>MdSidenav is the side navigation component for Material 2. It is composed
+        of two components; <code>&lt;md-sidenav-layout&gt;</code> and <code>&lt;md-sidenav&gt;</code>.</p>
+    <h2
+    id="screenshots"><a class="header-link" href="#screenshots"></a>Screenshots</h2>
+        <p class="img-container">
+            <img src="https://material.angularjs.org/material2_assets/sidenav-example.png">
+        </p>
+        
+<h2 id="-md-sidenav-layout-"><a class="header-link" href="#-md-sidenav-layout-"></a><code>&lt;md-sidenav-layout&gt;</code></h2>
+
+        <p>The parent component. Contains the code necessary to coordinate one or
+            two sidenav and the backdrop.</p>
+        
+<h3 id="properties"><a class="header-link" href="#properties"></a>Properties</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>start</code>
+                    </td>
+                    <td>The start aligned <code>MdSidenav</code> instance, or <code>null</code> if
+                        none is specified. In LTR direction, this is the sidenav shown on the left
+                        side. In RTL direction, it will show on the right. There can only be one
+                        sidenav on either side.</td>
+                </tr>
+                <tr>
+                    <td><code>end</code>
+                    </td>
+                    <td>The end aligned <code>MdSidenav</code> instance, or <code>null</code> if none
+                        is specified. This is the sidenav opposing the <code>start</code> sidenav.
+                        There can only be one sidenav on either side.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+<h2 id="-md-sidenav-"><a class="header-link" href="#-md-sidenav-"></a><code>&lt;md-sidenav&gt;</code></h2>
+
+        <p>The sidenav panel.</p>
+        
+<h3 id="bound-properties"><a class="header-link" href="#bound-properties"></a>Bound Properties</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>align</code>
+                    </td>
+                    <td>`&quot;start&quot;</td>
+                    <td>&quot;end&quot;`</td>
+                    <td>The alignment of this sidenav. In LTR direction, <code>&quot;start&quot;</code> will
+                        be shown on the left, <code>&quot;end&quot;</code> on the right. In RTL,
+                        it is reversed. <code>&quot;start&quot;</code> is used by default. An exception
+                        will be thrown if there are more than 1 sidenav on either side.</td>
+                </tr>
+                <tr>
+                    <td><code>mode</code>
+                    </td>
+                    <td>`&quot;over&quot;</td>
+                    <td>&quot;push&quot;</td>
+                    <td>&quot;side&quot;`</td>
+                    <td>The mode or styling of the sidenav, default being <code>&quot;over&quot;</code>.
+                        With <code>&quot;over&quot;</code> the sidenav will appear above the content,
+                        and a backdrop will be shown. With <code>&quot;push&quot;</code> the sidenav
+                        will push the content of the <code>&lt;md-sidenav-layout&gt;</code> to the
+                        side, and show a backdrop over it. <code>&quot;side&quot;</code> will resize
+                        the content and keep the sidenav opened. Clicking the backdrop will close
+                        sidenavs that do not have <code>mode=&quot;side&quot;</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>opened</code>
+                    </td>
+                    <td><code>boolean</code>
+                    </td>
+                    <td>Whether or not the sidenav is opened. Use this binding to open/close the
+                        sidenav.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+<h3 id="events"><a class="header-link" href="#events"></a>Events</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>open-start</code>
+                    </td>
+                    <td>Emitted when the sidenav is starting opening. This should only be used
+                        to coordinate animations.</td>
+                </tr>
+                <tr>
+                    <td><code>close-start</code>
+                    </td>
+                    <td>Emitted when the sidenav is starting closing. This should only be used
+                        to coordinate animations.</td>
+                </tr>
+                <tr>
+                    <td><code>open</code>
+                    </td>
+                    <td>Emitted when the sidenav is done opening. Use this for, e.g., setting
+                        focus on controls or updating state.</td>
+                </tr>
+                <tr>
+                    <td><code>close</code>
+                    </td>
+                    <td>Emitted when the sidenav is done closing.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+<h3 id="methods"><a class="header-link" href="#methods"></a>Methods</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Signature</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>open(): Promise&lt;void&gt;</code>
+                    </td>
+                    <td>Open the sidenav. Equivalent to <code>opened = true</code>. Returns a promise
+                        that will resolve when the animation completes, or be rejected if the animation
+                        was cancelled.</td>
+                </tr>
+                <tr>
+                    <td><code>close(): Promise&lt;void&gt;</code>
+                    </td>
+                    <td>Close the sidenav. Equivalent to <code>opened = false</code>. Returns a
+                        promise that will resolve when the animation completes, or be rejected
+                        if the animation was cancelled.</td>
+                </tr>
+                <tr>
+                    <td><code>toggle(): Promise&lt;void&gt;</code>
+                    </td>
+                    <td>Toggle the sidenav. This is equivalent to <code>opened = !opened</code>.
+                        Returns a promise that will resolve when the animation completes, or be
+                        rejected if the animation was cancelled.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+<h3 id="notes"><a class="header-link" href="#notes"></a>Notes</h3>
+
+        <p>The <code>&lt;md-sidenav&gt;</code> will resize based on its content. You
+            can also set its width in CSS, like so:</p>
+<pre class="hljs"><code><span class="hljs-selector-tag">md-sidenav</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+} </code></pre>
+        <p>Try to avoid percent based width as <code>resize</code> events are not (yet)
+            supported.</p>
+        
+<h2 id="examples"><a class="header-link" href="#examples"></a>Examples</h2>
+
+        <p>Here&#39;s a simple example of using the sidenav:</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">app</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">md-sidenav-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-sidenav</span> #<span class="hljs-attr">start</span> (<span class="hljs-attr">open</span>)=<span class="hljs-string">"mybutton.focus()"</span>&gt;</span>
+      Start Sidenav.
+      <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> #<span class="hljs-attr">mybutton</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"start.close()"</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-sidenav</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">md-sidenav</span> #<span class="hljs-attr">end</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
+      End Sidenav.
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">md-button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"end.close()"</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">md-sidenav</span>&gt;</span>
+
+    My regular content. This will be moved into the proper DOM at runtime.
+  <span class="hljs-tag">&lt;/<span class="hljs-name">md-sidenav-layout</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">app</span>&gt;</span></code></pre>
+</article>
