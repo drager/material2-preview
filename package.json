@@ -5,13 +5,13 @@
   "scripts": {
     "typings-install": "typings install",
     "postinstall": "npm run typings-install",
-    "build": "webpack --inline --colors --progress --display-error-details --display-cached",
+    "build": "rm -rf dist && webpack --inline --colors --progress --display-error-details --display-cached && cp ./src/index.html dist/",
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 4000  --content-base src",
     "start": "npm run server"
   },
   "author": "Jesper Håkansson <jesper@jesperh.se>",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "awesome-typescript-loader": "^1.1.1",
@@ -21,6 +21,7 @@
     "css-loader": "^0.23.1",
     "es6-promise": "^3.2.1",
     "es6-shim": "^0.35.1",
+    "file-loader": "^0.9.0",
     "html": "0.0.10",
     "postcss-calc": "^5.2.1",
     "postcss-easy-import": "^1.0.1",
