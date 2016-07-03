@@ -1,28 +1,30 @@
-<md-toolbar color="primary">
-  <button (click)="start.toggle()">
-    <md-icon class="toolbar-icon">menu</md-icon>
-  </button>
+<div class="toolbar">
+  <md-toolbar color="primary">
+    <button (click)="start.toggle()">
+      <md-icon class="toolbar-icon">menu</md-icon>
+    </button>
 
 
-  <a [routerLink]="['/']">
-    <img src="https://material.angular.io/microsite-ui/images/angular-logo-with-text.svg" />
-    <span class="name">Material</span>
-  </a>
+    <a [routerLink]="['/']">
+      <img src="https://material.angular.io/microsite-ui/images/angular-logo-with-text.svg" />
+      <span class="name">Material</span>
+    </a>
 
-  <span class="fill-remaining"></span>
+    <span class="fill-remaining"></span>
 
-  <a href="https://github.com/angular/material2">Preview on Github</a>
+    <a href="https://github.com/angular/material2">Preview on Github</a>
 
-</md-toolbar>
+  </md-toolbar>
+</div>
 <md-sidenav-layout>
   <md-sidenav #start>
-    <nav class="toggle">
+    <nav>
       <a (click)="toggleComponents()">
         <span>Components</span>
         <span class="fill-remaining"></span>
-        <md-icon>keyboard_arrow_down</md-icon>
+        <md-icon [ngClass]="toggled">keyboard_arrow_down</md-icon>
       </a>
-      <nav class="children" *ngIf="componentsOpened">
+      <nav [ngStyle]="{'transition': transition, 'max-height': height}" class="children" *ngIf="componentsOpened">
         <a class="disabled">
           <span>md-button-toggle</span>
         </a>
@@ -69,6 +71,11 @@
           <span>md-toolbar</span>
         </a>
       </nav>
+      <a (click)="toggleComponents()">
+        <span>Core</span>
+        <span class="fill-remaining"></span>
+        <md-icon>keyboard_arrow_down</md-icon>
+      </a>
     </nav>
   </md-sidenav>
   <main class="app">

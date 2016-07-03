@@ -15,11 +15,17 @@ import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav/sidenav'
 })
 export class App {
   componentsOpened: boolean = false
+  toggled: any
+  transition: any
+  height: any
 
   constructor(public router: Router) {}
 
   toggleComponents() {
     this.componentsOpened = !this.componentsOpened
+    this.toggled = this.componentsOpened ? 'toggled' : ''
+    this.height = this.componentsOpened ? '900px' : '0'
+    this.transition = this.componentsOpened ? 'max-height 0.25s ease-in' : ''
     return this.componentsOpened
   }
 }
